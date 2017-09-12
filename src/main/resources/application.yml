@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    stream:
+      defaultBinder: kafka
+      bindings:
+        input:
+          destination: ex.stream.in
+          content-type: application/json
+        dsp1out:
+          destination: dsp1.out
+          content-type: application/json
+        dsp2out:
+          destination: dsp2.out
+          content-type: application/json
+        kafka:
+          binder:
+            brokers: ${SERVICE_REGISTRY_HOST:127.0.0.1}
+            zkNodes: ${SERVICE_REGISTRY_HOST:127.0.0.1}
+            defaultZkPort: 2181
+            defaultBrokerPort: 9092
+
